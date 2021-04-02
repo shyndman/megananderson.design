@@ -212,3 +212,53 @@ a {
     color: rgba(3, 2, 49, 0.6);
   }
 }
+
+// ------------
+
+footer {
+  display: grid;
+  grid-template:
+    'index     elsewhere' auto
+    'contact   contact' auto
+    'copyright copyright' auto
+    / 1fr 1fr;
+
+  border-top: 1px solid rgba(3, 2, 49, 0.12);
+  padding: 64px 0 48px;
+  line-height: 24px;
+
+  .footer-index,
+  .footer-elsewhere {
+    h2 {
+      margin-bottom: 20px;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 36px;
+    }
+  }
+
+  .footer-index {
+    grid-area: index;
+  }
+
+  .footer-elsewhere {
+    grid-area: elsewhere;
+  }
+
+  .footer-contact {
+    grid-area: contact;
+    margin-top: 64px;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .footer-copyright {
+    grid-area: copyright;
+    margin-top: 42px;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    color: rgba(3, 2, 49, 0.6);
+  }
+}
