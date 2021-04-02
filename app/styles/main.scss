@@ -9,6 +9,7 @@ $black: #030231;
 html {
   color: $black;
   font-family: 'GT Walsheim Pro';
+  letter-spacing: 0.15px;
 
   margin: 0;
   padding: 0;
@@ -22,12 +23,25 @@ body {
 header,
 main,
 footer {
-  width: 1120px;
+  width: 1216px;
   margin: 0 auto;
 }
 
 em {
   font-style: italic;
+}
+
+a {
+  color: $black;
+}
+
+%caption {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(3, 2, 49, 0.6);
 }
 
 // ---------
@@ -58,5 +72,97 @@ em {
     background: rgba(3, 2, 49, 0.1);
     border-radius: 9999px;
     text-decoration: none;
+  }
+}
+
+// --------------
+
+.intro {
+  padding-top: 100px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(3, 2, 49, 0.12);
+
+  h1 {
+    width: 790px;
+    margin-bottom: 124px;
+
+    font-weight: 500;
+    font-size: 60px;
+    line-height: 64px;
+  }
+}
+
+.recent-positions {
+  display: flex;
+
+  .position-recency {
+    @extend %caption;
+    margin-bottom: 4px;
+  }
+
+  .position + .position {
+    margin-left: 178px;
+  }
+}
+
+// ---------------
+
+.portfolio-highlight {
+  display: grid;
+  grid-template:
+    'title    title   title' auto
+    'subhead  subhead subhead' auto
+    'overview gap     links' auto / 762px 24px 1fr;
+
+  padding-top: 96px;
+  padding-bottom: 16px;
+
+  h2 {
+    grid-area: title;
+
+    margin: 0 0 4px;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  .subhead {
+    margin-bottom: 32px;
+    grid-area: subhead;
+    font-size: 24px;
+    line-height: 36px;
+    color: rgba(3, 2, 49, 0.6);
+  }
+
+  h3 {
+    @extend %caption;
+    margin-bottom: 24px;
+  }
+
+  p {
+    width: 762px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .overview {
+    grid-area: overview;
+  }
+
+  .links {
+    grid-area: links;
+    line-height: 24px;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      a::after {
+        display: inline-block;
+        content: '→';
+        margin-left: 4px;
+      }
+    }
   }
 }
