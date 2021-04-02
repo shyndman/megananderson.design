@@ -29,3 +29,34 @@ footer {
 em {
   font-style: italic;
 }
+
+// ---------
+
+.header-designer-name {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.header-nav-links {
+  display: flex;
+
+  width: 100%;
+  padding: 0;
+  padding-top: 32px;
+
+  align-items: baseline;
+  list-style: none;
+
+  .header-designer-name {
+    flex: 1;
+  }
+
+  a {
+    display: inline-block;
+    padding: 8px 12px 7px 12px;
+
+    background: rgba(3, 2, 49, 0.1);
+    border-radius: 9999px;
+    text-decoration: none;
+  }
+}
