@@ -32,7 +32,7 @@ function styles() {
         .sync({
           includePaths: [
             'node_modules/breakpoint-sass/stylesheets',
-            'node_modules/normalize-scss/sass',
+            'node_modules/meyer-reset-scss',
             'node_modules/sass-bem',
           ],
           functions: {
