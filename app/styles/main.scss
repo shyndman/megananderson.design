@@ -2,6 +2,7 @@
 @use 'fonts';
 
 $black: #030231;
+$black60: rgba(3, 2, 49, 0.6);
 $left-slice-width: 762px;
 
 html {
@@ -44,7 +45,7 @@ a {
   line-height: 16px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: rgba(3, 2, 49, 0.6);
+  color: $black60;
 }
 
 // ---------
@@ -134,7 +135,7 @@ a {
     grid-area: subhead;
     font-size: 24px;
     line-height: 36px;
-    color: rgba(3, 2, 49, 0.6);
+    color: $black60;
   }
 
   h3 {
@@ -165,6 +166,21 @@ a {
         margin-left: 4px;
       }
     }
+  }
+
+  .images {
+    margin-top: 48px;
+    grid-column: 1 / -1;
+  }
+
+  img {
+    width: 100%;
+    border: 0.5px solid rgba(3, 2, 49, 0.12);
+    border-radius: 8px;
+  }
+
+  img + img {
+    margin-top: 16px;
   }
 }
 
@@ -197,6 +213,7 @@ a {
 
   .roles {
     @extend %caption;
+    margin-top: 10px;
   }
 
   h3 {
@@ -211,8 +228,12 @@ a {
 
   p {
     margin-top: 0;
+    color: $black60;
+  }
 
-    color: rgba(3, 2, 49, 0.6);
+  img {
+    width: 100%;
+    border-radius: 8px;
   }
 }
 
@@ -266,7 +287,7 @@ footer {
     margin-top: 42px;
     font-size: 12px;
     letter-spacing: 0.4px;
-    color: rgba(3, 2, 49, 0.6);
+    color: $black60;
   }
 }
 
