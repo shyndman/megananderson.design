@@ -8,6 +8,7 @@ $black: #030231;
 
 html {
   color: $black;
+  font-family: 'GT Walsheim Pro';
 
   margin: 0;
   padding: 0;
@@ -16,10 +17,6 @@ html {
 
 body {
   background: white;
-}
-
-main {
-  min-height: 100vh;
 }
 
 a {
