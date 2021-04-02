@@ -2,12 +2,10 @@
 @use 'fonts';
 
 $black: #030231;
+$left-slice-width: 762px;
 
 html {
   color: $black;
-  font-family: 'GT Walsheim Pro';
-  letter-spacing: 0.15px;
-
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -15,6 +13,14 @@ html {
 
 body {
   background: white;
+}
+
+html,
+body {
+  font-family: 'GT Walsheim Pro';
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
 }
 
 header,
@@ -109,7 +115,7 @@ a {
   grid-template:
     'title    title   title' auto
     'subhead  subhead subhead' auto
-    'overview gap     links' auto / 762px 24px 1fr;
+    'overview .       links' auto / $left-slice-width 24px 1fr;
 
   padding-top: 96px;
   padding-bottom: 16px;
@@ -138,8 +144,6 @@ a {
 
   p {
     width: 762px;
-    font-size: 16px;
-    line-height: 24px;
   }
 
   .overview {
@@ -263,5 +267,36 @@ footer {
     font-size: 12px;
     letter-spacing: 0.4px;
     color: rgba(3, 2, 49, 0.6);
+  }
+}
+
+// -------------
+
+.bio {
+  display: grid;
+  grid-template:
+    'content . get-in-touch' auto
+    / $left-slice-width 40px 1fr;
+
+  padding: 64px 0 64px;
+}
+
+.bio-content {
+  grid-area: content;
+
+  h2 {
+    font-weight: 500;
+  }
+
+  p {
+    margin-bottom: 24px;
+  }
+}
+
+.bio-get-in-touch {
+  grid-area: get-in-touch;
+
+  h3 {
+    @extend %caption;
   }
 }
