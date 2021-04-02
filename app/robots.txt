@@ -1,0 +1,5 @@
+# robotstxt.org/
+
+# No restrictions
+User-agent: *
+Disallow:

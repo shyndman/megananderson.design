@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html class="{% block pageClass %}{% endblock %}" lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color"/>
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="preload" href="/fonts/GT-Walsheim-Pro-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/GT-Walsheim-Pro-Regular-Oblique.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/GT-Walsheim-Pro-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/GT-Walsheim-Pro-Medium-Oblique.woff2" as="font" type="font/woff2" crossorigin>
+    {% block preload %}{% endblock %}
+    <title>
+      {% block title %}Felt{% endblock %}
+    </title>
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <!-- endbuild -->
+    {% block head %}{% endblock %}
+  </head>
+
+  <body>
+    <header>
+    </header>
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+    {% include 'widgets/_footer.njk' %}
+
+    <script src="scripts/common.bundle.js"></script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+@use 'normalize';
+@use 'fonts';
+@use 'typography';
+
+@include normalize.normalize();
+
+$black: #030231;
+
+html {
+  color: $black;
+
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+body {
+  background: white;
+}
+
+main {
+  min-height: 100vh;
+}
+
+a {
+  color: #5c50ff;
+  text-decoration: none;
+}
+
+em {
+  font-style: italic;
+}
