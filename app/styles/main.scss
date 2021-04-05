@@ -72,11 +72,14 @@ a {
   a {
     display: inline-block;
     padding: 8px 12px 7px 12px;
-
-    background: rgba(3, 2, 49, 0.1);
     border-radius: 9999px;
     text-decoration: none;
   }
+}
+
+.page-index .header-nav-link-index,
+.page-about .header-nav-link-about {
+  background: rgba(3, 2, 49, 0.1);
 }
 
 // --------------
