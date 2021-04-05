@@ -48,6 +48,13 @@ a {
   color: $black60;
 }
 
+%section-heading {
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 56px;
+  letter-spacing: 0.15px;
+}
+
 // ---------
 
 .header-designer-name {
@@ -125,12 +132,9 @@ a {
   padding-bottom: 16px;
 
   h2 {
+    @extend %section-heading;
     grid-area: title;
-
     margin: 0 0 4px;
-    font-weight: 500;
-    font-size: 48px;
-    line-height: 56px;
   }
 
   .subhead {
@@ -194,10 +198,7 @@ a {
   padding-bottom: 16px;
 
   h2 {
-    font-weight: 500;
-    font-size: 48px;
-    line-height: 56px;
-    letter-spacing: 0.15px;
+    @extend %section-heading;
     margin-bottom: 64px;
   }
 
@@ -323,5 +324,49 @@ footer {
 
   h3 {
     @extend %caption;
+  }
+}
+
+// ------------
+
+.experience-section {
+  h3 {
+    @extend %section-heading;
+    margin: 64px 0;
+  }
+
+  .experience-item {
+    display: grid;
+    grid-template:
+      'label . heading' auto
+      'label . details' auto
+      / 400px 40px 1fr;
+  }
+
+  .experience-item + .experience-item {
+    margin-top: 48px;
+  }
+
+  .date-range,
+  .contribution-type {
+    @extend %caption;
+    grid-area: label;
+  }
+
+  h4 {
+    grid-area: heading;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  .year,
+  .roles {
+    grid-area: details;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    color: $black60;
   }
 }
