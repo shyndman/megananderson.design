@@ -51,34 +51,6 @@ function styles() {
     .pipe(server.reload({ stream: true }));
 }
 
-function scripts() {
-  return webpack(buildWebpackConfig(env))
-    .pipe(
-      dest(!isProd ? '.tmp/scripts' : 'dist/scripts', {
-        sourcemaps: !isProd ? '.' : false,
-      }),
-    )
-    .pipe(server.reload({ stream: true }));
-}
-
-const lintBase = (files, options) => {
-  return src(files)
-    .pipe($.eslint(options))
-    .pipe(server.reload({ stream: true, once: true }))
-    .pipe($.eslint.format())
-    .pipe($.if(!server.active, $.eslint.failAfterError()));
-};
-
-function lint() {
-  return lintBase('app/scripts/**/*.js', { fix: true }).pipe(
-    dest('app/scripts'),
-  );
-}
-
-function lintTest() {
-  return lintBase('test/spec/**/*.js');
-}
-
 function views() {
   return src('app/*.njk')
     .pipe(
@@ -149,7 +121,7 @@ function measureSize() {
 const build = series(
   clean,
   images,
-  parallel(lint, series(parallel(styles, scripts), views, html), fonts, extras),
+  parallel(series(styles, views, html), fonts, extras),
   measureSize,
 );
 
@@ -176,7 +148,6 @@ function startAppServer() {
 
   watch('app/**/*.{html,njk,md}', views);
   watch('app/styles/**/*.scss', series(styles, views));
-  watch('app/scripts/**/*.js', scripts);
   watch('app/fonts/**/*', fonts);
 }
 
@@ -188,15 +159,12 @@ function startTestServer() {
     server: {
       baseDir: 'test',
       routes: {
-        '/scripts': '.tmp/scripts',
         '/node_modules': 'node_modules',
       },
     },
   });
 
   watch('test/index.html').on('change', server.reload);
-  watch('app/scripts/**/*.js', scripts);
-  watch('test/spec/**/*.js', lintTest);
 }
 
 function startDistServer() {
@@ -214,14 +182,9 @@ function startDistServer() {
 
 let serve;
 if (isDev) {
-  serve = series(
-    clean,
-    parallel(styles, scripts, fonts),
-    views,
-    startAppServer,
-  );
+  serve = series(clean, parallel(styles, fonts), views, startAppServer);
 } else if (isTest) {
-  serve = series(views, clean, scripts, startTestServer);
+  serve = series(views, clean, startTestServer);
 } else if (isProd) {
   serve = series(build, startDistServer);
 }
