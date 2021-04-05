@@ -62,7 +62,6 @@ function views() {
         },
       }),
     )
-    .pipe($.inlineSource({ rootpath: '.tmp' }))
     .pipe(dest('.tmp'))
     .pipe(server.reload({ stream: true }));
 }
