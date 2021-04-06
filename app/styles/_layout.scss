@@ -1,0 +1,18 @@
+@function calc-for-flexible-padding($content-width, $adjustment: null) {
+  $calc-expression: '(100vw - #{$content-width}) / 2';
+
+  @if $adjustment {
+    $calc-expression: '#{$calc-expression} + #{$adjustment}';
+  }
+
+  @return calc(#{$calc-expression});
+}
+
+@mixin flexible-horizontal-padding($content-width) {
+  @include horizontal-padding(calc-for-flexible-padding($content-width));
+}
+
+@mixin horizontal-padding($length) {
+  padding-left: $length;
+  padding-right: $length;
+}

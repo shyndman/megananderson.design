@@ -1,8 +1,11 @@
 @use 'reset-src';
 @use 'fonts';
+@use 'layout';
 
+$large-content-width: 1216px;
 $black: #030231;
 $black60: rgba(3, 2, 49, 0.6);
+$black12: rgba(3, 2, 49, 0.12);
 $left-slice-width: 762px;
 
 html {
@@ -25,10 +28,9 @@ body {
 }
 
 header,
-main,
+main > section,
 footer {
-  max-width: 1216px;
-  margin: 0 auto;
+  @include layout.flexible-horizontal-padding($large-content-width);
 }
 
 em {
@@ -252,8 +254,9 @@ footer {
     'copyright copyright' auto
     / 1fr 1fr;
 
-  border-top: 1px solid rgba(3, 2, 49, 0.12);
-  padding: 64px 0 48px;
+  border-top: 1px solid $black12;
+  padding-top: 64px;
+  padding-bottom: 48px;
   line-height: 24px;
 
   .footer-index,
