@@ -334,9 +334,13 @@ footer {
 // ------------
 
 .experience-section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  border-top: 1px solid $black12;
+
   h3 {
     @extend %section-heading;
-    margin: 64px 0;
+    margin-bottom: 64px;
   }
 
   .experience-item {
