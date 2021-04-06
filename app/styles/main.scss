@@ -307,7 +307,8 @@ footer {
     'content . get-in-touch' auto
     / $left-slice-width 40px 1fr;
 
-  padding: 64px 0 64px;
+  padding-top: 64px;
+  padding-bottom: 64px;
 }
 
 .bio-content {
