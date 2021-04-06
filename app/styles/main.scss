@@ -1,7 +1,7 @@
 @use 'reset-src';
 @use 'fonts';
-@use 'layout';
 @use 'image-aspects';
+@use 'layout';
 
 $large-content-width: 1180px;
 $black: #030231;
@@ -189,7 +189,7 @@ a {
     border-radius: 8px;
   }
 
-  img + img {
+  .image-container + .image-container {
     margin-top: 16px;
   }
 }
