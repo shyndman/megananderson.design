@@ -7,7 +7,6 @@ $large-content-width: 1180px;
 $black: #030231;
 $black60: rgba(3, 2, 49, 0.6);
 $black12: rgba(3, 2, 49, 0.12);
-$left-slice-width: 762px;
 
 html {
   color: $black;
@@ -31,7 +30,7 @@ body {
 header,
 main > section,
 footer {
-  @include layout.flexible-horizontal-padding($large-content-width);
+  @include layout.flexible-horizontal-padding(#{$large-content-width}, 48px);
 }
 
 em {
@@ -129,7 +128,7 @@ a {
   grid-template:
     'title    title   title' auto
     'subhead  subhead subhead' auto
-    'overview .       links' auto / $left-slice-width 24px 1fr;
+    'overview .       links' auto / 66fr 24px 33fr;
 
   padding-top: 96px;
   padding-bottom: 16px;
@@ -151,10 +150,6 @@ a {
   h3 {
     @extend %caption;
     margin-bottom: 24px;
-  }
-
-  p {
-    width: 762px;
   }
 
   .overview {
@@ -306,7 +301,7 @@ footer {
   display: grid;
   grid-template:
     'content . get-in-touch' auto
-    / $left-slice-width 40px 1fr;
+    / 1fr 40px 308px;
 
   padding-top: 64px;
   padding-bottom: 64px;

@@ -8,11 +8,19 @@
   @return calc(#{$calc-expression});
 }
 
-@mixin flexible-horizontal-padding($content-width) {
-  @include horizontal-padding(calc-for-flexible-padding($content-width));
+@mixin flexible-horizontal-padding($content-width, $min: null) {
+  @include horizontal-padding(
+    calc-for-flexible-padding($content-width),
+    $min: $min
+  );
 }
 
-@mixin horizontal-padding($length) {
-  padding-left: $length;
-  padding-right: $length;
+@mixin horizontal-padding($length, $min: null) {
+  @if $min == null {
+    padding-left: $length;
+    padding-right: $length;
+  } @else {
+    padding-left: unquote('max(#{$length}, #{$min})');
+    padding-right: unquote('max(#{$length}, #{$min})');
+  }
 }
