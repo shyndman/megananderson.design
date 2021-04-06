@@ -171,6 +171,10 @@ a {
         margin-left: 4px;
       }
     }
+
+    li + li {
+      margin-top: 4px;
+    }
   }
 
   .images {
