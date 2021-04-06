@@ -1,8 +1,9 @@
 @use 'reset-src';
 @use 'fonts';
 @use 'layout';
+@use 'image-aspects';
 
-$large-content-width: 1216px;
+$large-content-width: 1180px;
 $black: #030231;
 $black60: rgba(3, 2, 49, 0.6);
 $black12: rgba(3, 2, 49, 0.12);
