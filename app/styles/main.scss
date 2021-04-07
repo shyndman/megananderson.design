@@ -351,6 +351,13 @@ footer {
 
   padding-top: 64px;
   padding-bottom: 64px;
+
+  @include layout.breakpoint-small {
+    grid-template:
+      'get-in-touch'
+      '.' 40px
+      'content';
+  }
 }
 
 .bio-content {
@@ -380,9 +387,19 @@ footer {
   padding-bottom: 64px;
   border-top: 1px solid $black12;
 
+  @include layout.breakpoint-small {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
   h3 {
     @include section-heading;
     margin-bottom: 64px;
+
+    @include layout.breakpoint-small {
+      @include small-section-heading;
+      margin-bottom: 48px;
+    }
   }
 
   .experience-item {
@@ -390,7 +407,14 @@ footer {
     grid-template:
       'label . heading' auto
       'label . details' auto
-      / 400px 40px 1fr;
+      / 0.5fr 40px 1fr;
+
+    @include layout.breakpoint-small {
+      grid-template:
+        'label'
+        'heading'
+        'details';
+    }
   }
 
   .experience-item + .experience-item {
@@ -401,6 +425,10 @@ footer {
   .contribution-type {
     @extend %caption;
     grid-area: label;
+
+    @include layout.breakpoint-small {
+      margin-bottom: 8px;
+    }
   }
 
   h4 {
@@ -409,6 +437,12 @@ footer {
     font-weight: 500;
     font-size: 24px;
     line-height: 36px;
+
+    @include layout.breakpoint-small {
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 0;
+    }
   }
 
   .year,
