@@ -3,12 +3,12 @@
 @use 'image-aspects';
 @use 'layout';
 
-$large-content-width: 1180px;
 $black: #030231;
 $black60: rgba(3, 2, 49, 0.6);
 $black12: rgba(3, 2, 49, 0.12);
 
 html {
+  box-sizing: border-box;
   color: $black;
   margin: 0;
   padding: 0;
@@ -30,7 +30,14 @@ body {
 header,
 main > section,
 footer {
-  @include layout.flexible-horizontal-padding(#{$large-content-width}, 48px);
+  @include layout.flexible-horizontal-padding(
+    #{layout.$large-content-width},
+    48px
+  );
+
+  @include layout.breakpoint-small {
+    @include layout.horizontal-padding(16px);
+  }
 }
 
 em {
@@ -50,11 +57,16 @@ a {
   color: $black60;
 }
 
-%section-heading {
+@mixin section-heading {
   font-weight: 500;
   font-size: 48px;
   line-height: 56px;
-  letter-spacing: 0.15px;
+}
+
+@mixin small-section-heading {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
 }
 
 // ---------
@@ -133,10 +145,22 @@ a {
   padding-top: 96px;
   padding-bottom: 16px;
 
+  @include layout.breakpoint-small {
+    grid-template:
+      'title'
+      'subhead'
+      'overview'
+      'links';
+  }
+
   h2 {
-    @extend %section-heading;
+    @include section-heading;
     grid-area: title;
     margin: 0 0 4px;
+
+    @include layout.breakpoint-small {
+      @include small-section-heading;
+    }
   }
 
   .subhead {
@@ -145,11 +169,20 @@ a {
     font-size: 24px;
     line-height: 36px;
     color: $black60;
+
+    @include layout.breakpoint-small {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
 
   h3 {
     @extend %caption;
     margin-bottom: 24px;
+
+    @include layout.breakpoint-small {
+      margin-bottom: 16px;
+    }
   }
 
   .overview {
@@ -159,6 +192,10 @@ a {
   .links {
     grid-area: links;
     line-height: 24px;
+
+    @include layout.breakpoint-small {
+      margin-top: 24px;
+    }
 
     ul {
       list-style: none;
@@ -200,7 +237,7 @@ a {
   padding-bottom: 16px;
 
   h2 {
-    @extend %section-heading;
+    @include section-heading;
     margin-bottom: 64px;
   }
 
@@ -339,7 +376,7 @@ footer {
   border-top: 1px solid $black12;
 
   h3 {
-    @extend %section-heading;
+    @include section-heading;
     margin-bottom: 64px;
   }
 

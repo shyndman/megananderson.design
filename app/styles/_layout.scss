@@ -1,3 +1,14 @@
+@use 'node_modules/breakpoint-sass/stylesheets/breakpoint' as b;
+
+$medium-content-width: 604px;
+$media-small-max: $medium-content-width + 16px * 2;
+$media-small: 0 $media-small-max;
+
+$large-content-width: 1180px;
+$media-medium-max: $large-content-width + 48px * 2;
+$media-medium: ($media-small-max + 1px) $media-medium-max;
+
+
 @function calc-for-flexible-padding($content-width, $adjustment: null) {
   $calc-expression: '(100vw - #{$content-width}) / 2';
 
@@ -22,5 +33,17 @@
   } @else {
     padding-left: unquote('max(#{$length}, #{$min})');
     padding-right: unquote('max(#{$length}, #{$min})');
+  }
+}
+
+@mixin breakpoint-small {
+  @include b.breakpoint($media-small) {
+    @content;
+  }
+}
+
+@mixin breakpoint-medium {
+  @include b.breakpoint($media-medium) {
+    @content;
   }
 }
