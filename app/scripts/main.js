@@ -1,4 +1,11 @@
 (() => {
+  window.addEventListener('load', () => {
+    // Fade-in the entire page
+    document.body.classList.add('ready');
+  });
+
+  // Set up intersection observation, so that images fade-in while the user is
+  // scrolling
   const hasIntersectionObserver = 'IntersectionObserver' in window;
   let intersectionObserver;
   if (hasIntersectionObserver) {
@@ -16,11 +23,13 @@
         }
       },
       {
+        // Feels about right
         threshold: 0.3,
       },
     );
   }
 
+  // Set up images for the scroll fade-ins
   for (const img of Array.from(document.querySelectorAll('img'))) {
     if (!hasIntersectionObserver) {
       img.classList.add('is-in-view');
