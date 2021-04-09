@@ -239,7 +239,11 @@ a {
   }
 
   .image-container + .image-container {
-    margin-top: 16px;
+    margin-top: 12px;
+
+    @include layout.breakpoint-small {
+      margin-top: 6px;
+    }
   }
 }
 
