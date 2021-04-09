@@ -48,6 +48,15 @@ a {
   color: $black;
 }
 
+img {
+  opacity: 0.01;
+  transition: opacity 0.5s;
+
+  &.is-loaded.is-in-view {
+    opacity: 1;
+  }
+}
+
 %caption {
   font-weight: 500;
   font-size: 10px;
