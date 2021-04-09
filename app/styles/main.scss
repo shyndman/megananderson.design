@@ -150,6 +150,14 @@ a {
   padding-top: 96px;
   padding-bottom: 16px;
 
+  &.first {
+    padding-top: 64px;
+
+    @include layout.breakpoint-small {
+      padding-top: 48px;
+    }
+  }
+
   @include layout.breakpoint-small {
     grid-template:
       'title'
