@@ -16,9 +16,9 @@
             continue;
           }
 
-          const img = entry.target;
-          if (!img.classList.contains('is-in-view')) {
-            img.classList.add('is-in-view');
+          const target = entry.target;
+          if (!target.classList.contains('is-in-view')) {
+            target.classList.add('is-in-view');
           }
         }
       },
@@ -30,14 +30,14 @@
   }
 
   // Set up images for the scroll fade-ins
-  for (const img of Array.from(document.querySelectorAll('img'))) {
+  for (const img of Array.from(document.querySelectorAll('img, .portfolio-highlight .copy'))) {
     if (!hasIntersectionObserver) {
       img.classList.add('is-in-view');
     } else {
       intersectionObserver.observe(img);
     }
 
-    if (img.complete) {
+    if (img instanceof HTMLImageElement && img.complete) {
       markImageLoaded(img);
     } else {
       img.addEventListener('load', (event) => {

@@ -94,7 +94,8 @@ img {
   font-size: 18px;
   font-weight: 500;
 
-  a, a:link {
+  a,
+  a:link {
     color: $black;
   }
 }
@@ -235,6 +236,15 @@ img {
 
   .overview {
     grid-area: overview;
+  }
+
+  .copy {
+    opacity: 0.01;
+    transition: opacity 0.5s;
+
+    &.is-in-view {
+      opacity: 1;
+    }
   }
 
   .links {
