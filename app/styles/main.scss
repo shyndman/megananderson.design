@@ -107,15 +107,23 @@ img {
 
   a {
     display: inline-block;
+    font-weight: 500;
+    text-decoration: none;
+    color: rgba($black, 0.6);
+
     padding: 8px 12px 7px 12px;
     border-radius: 9999px;
-    text-decoration: none;
+
+    &:hover {
+      color: $black;
+    }
   }
 }
 
 .page-index .header-nav-link-index,
 .page-about .header-nav-link-about {
-  background: rgba(3, 2, 49, 0.1);
+  color: $black;
+  background: rgba($black, 0.14);
 }
 
 // --------------
