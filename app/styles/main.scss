@@ -93,6 +93,10 @@ img {
 .header-designer-name {
   font-size: 18px;
   font-weight: 500;
+
+  a, a:link {
+    color: $black;
+  }
 }
 
 .header-nav-links {
@@ -107,9 +111,13 @@ img {
 
   .header-designer-name {
     flex: 1;
+
+    a {
+      text-decoration: none;
+    }
   }
 
-  a {
+  .header-nav-link {
     display: inline-block;
     font-weight: 500;
     text-decoration: none;
