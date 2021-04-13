@@ -177,14 +177,16 @@ img {
 // ---------------
 
 .portfolio-highlight {
-  display: grid;
-  grid-template:
-    'title    title   title' auto
-    'subhead  subhead subhead' auto
-    'overview .       links' auto / 66fr 24px 33fr;
-
   padding-top: 96px;
   padding-bottom: 16px;
+
+  .copy {
+    display: grid;
+    grid-template:
+      'title    title   title' auto
+      'subhead  subhead subhead' auto
+      'overview .       links' auto / 66fr 24px 33fr;
+  }
 
   &.first {
     padding-top: 64px;
