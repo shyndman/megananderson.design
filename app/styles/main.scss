@@ -186,6 +186,14 @@ img {
       'title    title   title' auto
       'subhead  subhead subhead' auto
       'overview .       links' auto / 66fr 24px 33fr;
+
+    @include layout.breakpoint-small {
+      grid-template:
+        'title'
+        'subhead'
+        'overview'
+        'links';
+    }
   }
 
   &.first {
@@ -198,14 +206,6 @@ img {
     @include layout.breakpoint-small {
       padding-top: 48px;
     }
-  }
-
-  @include layout.breakpoint-small {
-    grid-template:
-      'title'
-      'subhead'
-      'overview'
-      'links';
   }
 
   h2 {
