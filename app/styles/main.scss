@@ -189,6 +189,10 @@ img {
   &.first {
     padding-top: 64px;
 
+    .copy {
+      opacity: 1;
+    }
+
     @include layout.breakpoint-small {
       padding-top: 48px;
     }
