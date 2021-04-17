@@ -105,7 +105,7 @@ img {
 
   width: 100%;
   padding: 0;
-  padding-top: 32px;
+  padding-top: 24px;
 
   align-items: baseline;
   list-style: none;
@@ -152,11 +152,11 @@ img {
 
     font-weight: 500;
     font-size: 60px;
-    line-height: 64px;
+    line-height: 74px;
 
     @include layout.breakpoint-small {
-      font-size: 34px;
-      line-height: 38px;
+      font-size: 28px;
+      line-height: 36px;
     }
   }
 }
